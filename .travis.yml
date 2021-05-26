@@ -1,0 +1,10 @@
+sudo: true
+dist: trusty
+
+jobs:
+  include:
+    - stage: build docker image
+      script:
+      - docker build -t vibrio-tnseq .
+      - docker tag vibrio-tnseq vibrio-tnseq:latest
+      - docker run -i -t vibrio-tnseq:latest /usr/local/bin/run_pipeline.pl -v --gff /databases/vibrio.gff --cgview 1 --png 1 --infolder /data
