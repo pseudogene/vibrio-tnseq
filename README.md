@@ -1,3 +1,7 @@
+vibrio-tnseq - Tn-seq pipeline for _Vibrio_ sp.
+
+[![Build Status](https://www.travis-ci.com/pseudogene/vibrio-tnseq.svg?branch=main)](https://www.travis-ci.com/pseudogene/vibrio-tnseq) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e25f356a3e83436bbedc67440dce958c)](https://www.codacy.com/gh/pseudogene/vibrio-tnseq/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pseudogene/vibrio-tnseq&amp;utm_campaign=Badge_Grade)
+
 # Vibrio Tn-seq
 
 We foster the openness, integrity, and reproducibility of scientific research.
@@ -6,7 +10,7 @@ Scripts and tools used to analyse _Vibrio anguillarum_ Tn-seq project. The data 
 
 ## Associated publication
 
-> in preparation
+> submitted
 
 ## How to use this repository?
 
