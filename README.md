@@ -1,6 +1,6 @@
 vibrio-tnseq - Tn-seq pipeline for _Vibrio_ sp.
 
-[![Build Status](https://www.travis-ci.com/pseudogene/vibrio-tnseq.svg?branch=main)](https://www.travis-ci.com/pseudogene/vibrio-tnseq) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e25f356a3e83436bbedc67440dce958c)](https://www.codacy.com/gh/pseudogene/vibrio-tnseq/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pseudogene/vibrio-tnseq&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://www.travis-ci.com/pseudogene/vibrio-tnseq.svg?branch=master)](https://www.travis-ci.com/pseudogene/vibrio-tnseq) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e25f356a3e83436bbedc67440dce958c)](https://www.codacy.com/gh/pseudogene/vibrio-tnseq/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pseudogene/vibrio-tnseq&amp;utm_campaign=Badge_Grade)
 
 # Vibrio Tn-seq
 
@@ -64,6 +64,32 @@ bowtie2 --no-1mm-upfront --end-to-end --very-fast -x /databases/vibrio -U <outpu
 sam_to_map.pl --sam <output.sam> --cgview 1 --png 1 -v > output.log
 ```
 
+### Use your own genome and genome annotation
+
+By default de database available is for _Vibrio anguillarum_ NB10. If you used another species or strain you will have to update the database
+
+```
+cd /databases/
+
+# get the genome sequence (FASTA format)
+wget -cO - ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/786/425/GCF_000786425.1_Vibrio_anguillarum_NB10_serovar_O1/GCF_000786425.1_Vibrio_anguillarum_NB10_serovar_O1_genomic.fna.gz > Vibrio_anguillarum_NB10.fa.gz
+
+# get the genome sequence (GFF format)
+wget -cO - ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/786/425/GCF_000786425.1_Vibrio_anguillarum_NB10_serovar_O1/GCF_000786425.1_Vibrio_anguillarum_NB10_serovar_O1_genomic.gff.gz > Vibrio_anguillarum_NB10.gff.gz
+
+# pre-process the genome sequence for Bowtie2
+gunzip /databases/*.gz
+bowtie2-build -q -f Vibrio_anguillarum_NB10.fa Vibrio_anguillarum_NB10
+
+#Your "database" : /database/Vibrio_anguillarum_NB10
+#Your "gff": /database/Vibrio_anguillarum_NB10.gff
+```
+
+```sh
+cd /data/
+run_pipeline.pl -v --gff /database/Vibrio_anguillarum_NB10.gff --database /database/Vibrio_anguillarum_NB10 --cgview 1 --png 1 --infolder reads
+```
+
 ## Run a pipeline
 
 Make sure your compressed raw read files are in `<absolute_path>/reads`. To run a new pipeline:
@@ -84,7 +110,7 @@ cd reads
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/[...].fastq.gz
 [...]
 cd ..
-run_pipeline.pl -v --gff /databases/vibrio.gff --cgview 1 --png 1 --infolder reads
+run_pipeline.pl -v --cgview 1 --png 1 --infolder reads
 exit
 ```
 

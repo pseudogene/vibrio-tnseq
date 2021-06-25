@@ -28,15 +28,16 @@ use Getopt::Long;
 use Cwd qw/ abs_path /;
 
 #----------------------------------------
-our $VERSION = 1.2;
+our $VERSION = 1.3;
 
 #----------------------------------------
-my ($verbose, $threads, $outdir, $stats, $end, $gff, $cgview, $topology, $png, $svg, $database, $readfiles) = (0, 1, abs_path('.'), 0, 0, 0, 0, 'circular', 0, 0, '/databases/vibrio');
+my ($verbose, $threads, $outdir, $stats, $end, $gff, $cgview, $topology, $png, $svg, $database, $readfiles) = (0, 1, abs_path('.'), 0, 0, '/databases/vibrio.gff', 0, 'circular', 0, 0, '/databases/vibrio');
 GetOptions(
            'i|infolder|readfiles:s' => \$readfiles,
            'stats:+'                => \$stats,
            'end:i'                  => \$end,
            'gff:s'                  => \$gff,
+           'database:s'             => \$database,
            'cgview:+'               => \$cgview,
            'topology:s'             => \$topology,
            'png:+'                  => \$png,
@@ -109,6 +110,6 @@ if (defined $readfiles && -d $readfiles && defined $topology && $topology =~ m/(
 else
 {
     print {*STDOUT}
-      "Usage: $0 --infolder <compressed raw read file folder> [options]\n\n    --infolder   path to the compressed raw read file folder. [mandatory]\n    --gff        provide gene annotations and output a GFF file\n    --end        ignore the insert if is is in the last n%. [default 0/off]\n    --stats      provides coverage statistics. [default 0/off]\n    --cgview     output a cgview XML file. [default 0/off]\n    --topology   specify the chromosome topology circular or linear for gview. [default circular]\n    --png        run gview and generate an PNG image file. [default 0/off]\n    --svg        run gview and generate an SVG image file. [default 0/off]\n    --output     directory to use when generation outputs. [default .]\n    --verbose    become very chatty. [default 0/off]\n\n";
+      "Usage: $0 --infolder <compressed raw read file folder> [options]\n\n    --infolder   path to the compressed raw read file folder. [mandatory]\n    --gff        provide gene annotations and output a GFF file\n    --database   provide genome sequence formated for bowtie2\n    --end        ignore the insert if is is in the last n%. [default 0/off]\n    --stats      provides coverage statistics. [default 0/off]\n    --cgview     output a cgview XML file. [default 0/off]\n    --topology   specify the chromosome topology circular or linear for gview. [default circular]\n    --png        run gview and generate an PNG image file. [default 0/off]\n    --svg        run gview and generate an SVG image file. [default 0/off]\n    --output     directory to use when generation outputs. [default .]\n    --verbose    become very chatty. [default 0/off]\n\n";
     exit 1;
 }
