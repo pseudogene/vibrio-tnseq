@@ -10,7 +10,12 @@ Scripts and tools used to analyse _Vibrio anguillarum_ Tn-seq project. The data 
 
 ## Associated publication
 
-> submitted
+> **Essential genes of _Vibrio anguillarum_ and other _Vibrio_ spp. guide the development of new drugs and vaccines**.
+> Bekaert M, Goffin N, McMillan S and Desbois A.
+>_Front. Microbiol._ 12:755801
+
+[![DOI](https://img.shields.io/badge/DOI-10.3389%2Ffmicb.2021.755801-blue.svg)](https://doi.org/10.3389/fmicb.2021.755801)
+
 
 ## How to use this repository?
 
