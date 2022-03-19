@@ -12,10 +12,9 @@ Scripts and tools used to analyse _Vibrio anguillarum_ Tn-seq project. The data 
 
 > **Essential genes of _Vibrio anguillarum_ and other _Vibrio_ spp. guide the development of new drugs and vaccines**.
 > Bekaert M, Goffin N, McMillan S and Desbois A.
->_Front. Microbiol._ 12:755801
+> _Front. Microbiol._ 12:755801
 
 [![DOI](https://img.shields.io/badge/DOI-10.3389%2Ffmicb.2021.755801-blue.svg)](https://doi.org/10.3389/fmicb.2021.755801)
-
 
 ## How to use this repository?
 
@@ -73,7 +72,7 @@ sam_to_map.pl --sam <output.sam> --cgview 1 --png 1 -v > output.log
 
 By default de database available is for _Vibrio anguillarum_ NB10. If you used another species or strain you will have to update the database
 
-```
+```sh
 cd /databases/
 
 # get the genome sequence (FASTA format)
