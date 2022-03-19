@@ -1,6 +1,6 @@
 vibrio-tnseq - Tn-seq pipeline for _Vibrio_ sp.
 
-[![Build Status](https://www.travis-ci.com/pseudogene/vibrio-tnseq.svg?branch=master)](https://www.travis-ci.com/pseudogene/vibrio-tnseq) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e25f356a3e83436bbedc67440dce958c)](https://www.codacy.com/gh/pseudogene/vibrio-tnseq/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pseudogene/vibrio-tnseq&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://app.travis-ci.com/pseudogene/vibrio-tnseq.svg?branch=master)](https://app.travis-ci.com/pseudogene/vibrio-tnseq) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e25f356a3e83436bbedc67440dce958c)](https://www.codacy.com/gh/pseudogene/vibrio-tnseq/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pseudogene/vibrio-tnseq&amp;utm_campaign=Badge_Grade)
 
 # Vibrio Tn-seq
 
