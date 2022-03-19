@@ -1,0 +1,20 @@
+name: Build and Test Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag vibrio-tnseq:latest
+    - name: Run test on Docker
+      run: docker run -i -t vibrio-tnseq:latest /usr/local/bin/run_pipeline.pl -v --gff /databases/vibrio.gff --cgview 1 --png 1 --infolder /data
