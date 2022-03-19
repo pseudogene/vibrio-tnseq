@@ -1,4 +1,4 @@
-# Copyright 2014-2021, Michaël Bekaert <michael.bekaert@stir.ac.uk>
+# Copyright 2014-2021, MichaÃ«l Bekaert <michael.bekaert@stir.ac.uk>
 #
 # This file is part of Vibrio-TNseq.
 #
@@ -18,12 +18,12 @@
 FROM ubuntu:20.04
 LABEL description="Vibrio-TNseq Docker" version="1.2" Vendor="Institute of Aquaculture, University of Stirling"
 
-RUN apt-get update && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y python3 python3-pip bowtie2 wget unzip ca-certificates-java default-jre default-jre-headless --no-install-recommends && \
-    apt-get clean && \
+    DEBIAN_FRONTEND=noninteractive apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install cutadapt
+RUN pip3 install cutadapt==3.7
 
 RUN wget -q --no-check-certificate https://github.com/phac-nml/gview-wiki/raw/master/resources/downloads/gview-1.7.zip -O gview-1.7.zip && \
     unzip -q gview-1.7.zip && \
